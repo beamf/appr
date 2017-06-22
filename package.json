@@ -32,7 +32,7 @@
     "eslint-plugin-import": "^2.2.0"
   },
   "dependencies": {
-    "exp": "^40.0.2",
+    "exp": "^41.3.0",
     "request": "^2.81.0"
   }
 }
