@@ -3,8 +3,10 @@ const config = require('./config');
 
 module.exports = function preDeploy() {
   const pkg = utils.readPackageJSON();
+  const name = utils.getExpPublishName(pkg.name, config.githubSourceBranch);
   const modified = Object.assign({}, pkg, {
-    name: utils.getExpPublishName(pkg.name, config.githubSourceBranch),
+    name,
+    slug: name,
     privacy: 'unlisted'
   });
 
