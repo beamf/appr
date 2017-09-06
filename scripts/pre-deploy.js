@@ -11,18 +11,18 @@ module.exports = function preDeploy() {
 
   utils.writePackageJSON(modified);
 
-  const app = utils.readAppJSON();
+  let app = utils.readAppJSON();
   if (app.expo) {
     app.expo = Object.assign({}, app.expo, {
       name,
       slug: name,
-      privacy: 'unlisted',
+      privacy: 'unlisted'
     });
   } else {
     app = Object.assign({}, app, {
       name,
       slug: name,
-      privacy: 'unlisted',
+      privacy: 'unlisted'
     });
   }
 

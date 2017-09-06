@@ -25,5 +25,5 @@ module.exports = {
   readPackageJSON,
   writePackageJSON,
   readAppJSON,
-  writeAppJSON,
+  writeAppJSON
 };
