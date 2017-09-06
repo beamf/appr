@@ -6,9 +6,25 @@ module.exports = function preDeploy() {
   const name = utils.getExpPublishName(pkg.name, config.githubSourceBranch);
   const modified = Object.assign({}, pkg, {
     name,
-    slug: name,
     privacy: 'unlisted'
   });
 
   utils.writePackageJSON(modified);
+
+  const app = utils.readAppJSON();
+  if (app.expo) {
+    app.expo = Object.assign({}, app.expo, {
+      name,
+      slug: name,
+      privacy: 'unlisted',
+    });
+  } else {
+    app = Object.assign({}, app, {
+      name,
+      slug: name,
+      privacy: 'unlisted',
+    });
+  }
+
+  utils.writeAppJSON(app);
 };
